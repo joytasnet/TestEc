@@ -1,9 +1,12 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Test {
 	public static void main(String[] args) {
@@ -55,5 +58,31 @@ public class Test {
 			}
 		}
 		System.out.println(count + "回で揃いました!");
+
+		Set<String> fruits=new TreeSet<>();
+		fruits.add("apple");
+		fruits.add("orange");
+		fruits.add("banana");
+		for(String f:fruits) {
+			System.out.println(f);
+		}
+
+		List<Integer>  nums=new ArrayList<>();
+		for(int i=0;i<10;i++) {
+			nums.add(rand.nextInt(10)+1);
+		}
+		System.out.println(nums);
+		Set<Integer> data=new TreeSet<>(nums);
+		System.out.println(data);
+		
+		String dataCSV="タコ,イクラ,マグロ,トロ,イクラ,ウニ,ホタテ,マグロ,トロ,マグロ,エビ,イカ";
+		String[] sushi=dataCSV.split(",");
+		for(String s:sushi) {
+			System.out.println(s);
+		}
+		System.out.println("食べた種類を食べた順に表示します(重複除く)");
+		List<String> list=Arrays.asList(sushi);
+		Set<String> set1 = new LinkedHashSet<>(list);
+		System.out.println(set1);
 	}
 }
